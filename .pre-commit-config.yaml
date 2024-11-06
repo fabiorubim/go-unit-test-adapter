@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/melisource/fury_websec-git-hooks
+    rev: v2.0.0
+    hooks:
+      - id: pre_commit_hook
+        stages: [commit]
+      - id: post_commit_hook
+        stages: [post-commit]
+  - repo: https://github.com/melisource/fury_datasec-git-hooks
+    rev: 1.1.0
+    hooks:
+      - id: pre_commit_hook
+        stages: [commit]
+        verbose: true
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.14.0
+    hooks:
+      - id: pretty-format-golang
+        args:
+          - --autofix
+  # - repo: https://github.com/golangci/golangci-lint
+  #   rev: v1.61.0
+  #   hooks:
+  #     - id: golangci-lint
+  #       entry: golangci-lint run
+  #       args:
+  #         - --max-issues-per-linter=0
+  #         - --max-same-issues=0
+  #         - --config=.code_quality/.golangci.yml
+  #         - --new-from-rev=HEAD~1 # comment this arg if you want to run pre-commit run --all-files
